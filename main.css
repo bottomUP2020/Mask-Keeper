@@ -74,3 +74,7 @@
   font-size: 50px;
   flex-direction: column;
 }
+.index_title{
+  font-family: 'Anton', sans-serif;
+  font-size: 70px;
+}
