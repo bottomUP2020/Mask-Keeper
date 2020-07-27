@@ -1,0 +1,72 @@
+.index_body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  margin: 30px;
+  font-family: "Roboto", sans-serif;
+  font-size: 40px;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+}
+
+.index_body .index_title {
+  padding: 10px;
+  margin: 30px;
+}
+
+.index_body .start_btn {
+  width: 140px;
+  height: 45px;
+  margin: 30px;
+  font-family: "Roboto", sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+
+  outline: none;
+}
+
+.index_body .start_btn:hover {
+  background-color: #1f9be2c2;
+  box-shadow: 0px 15px 20px rgba(39, 130, 233, 0.5);
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+.index_body .start_btn:visited {
+  background-color: white;
+}
+
+.main_body .modal {
+  display: none; /* Hidden by default 처음에 보이지 않음 */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top 위에 보여짐*/
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed 스크롤내려도 따라감*/
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+.modal .modalcontent {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%; /* Could be more or less, depending on screen size */
+}
+.modal .text {
+  width: 90;
+  font-size: medium;
+}
