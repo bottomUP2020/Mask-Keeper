@@ -11,6 +11,8 @@ let maskimgsrc = "maskimg.png";
 let btn = document.getElementsByClassName("start_button");
 btn = document.querySelector("button");
 
+var count;
+
 // Load the image model and setup the webcam
 async function init() {
   //우리가 만든 모델을 불러온다
@@ -116,6 +118,11 @@ async function predict() {
     audio1.currentTime = 0;
     audio1.play();
     document.getElementById("text").innerHTML = "검사가 완료되었습니다.";
+
+    count = document.getElementsByClassName("count").innerHTML;
+    count++;
+    document.getElementsByClassName("count").innerHTML = count;
+
     await new Promise((resolve, reject) => {
       setTimeout(() => {
         audio1.pause();
