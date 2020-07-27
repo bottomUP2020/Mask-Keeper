@@ -116,6 +116,11 @@ async function predict() {
     audio1.currentTime = 0;
     audio1.play();
     document.getElementById("text").innerHTML = "검사가 완료되었습니다.";
+
+    var count = document.getElementsByClassName("count").innerHTML;
+    count++;
+    document.getElementsByClassName("count").innerHTML = count;
+
     await new Promise((resolve, reject) => {
       setTimeout(() => {
         audio1.pause();

@@ -1,6 +1,6 @@
 .index_body {
   display: flex;
-  flex-direction: column;ㅇ
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 30px;
@@ -69,4 +69,8 @@
 .modal .text {
   width: 90;
   font-size: medium;
+}
+.count{
+  font-size: 50px;
+  flex-direction: column;
 }
