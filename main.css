@@ -18,7 +18,7 @@
 .index_body .start_btn {
   width: 140px;
   height: 45px;
-  margin: 30px;
+  margin: 20px;
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 2.5px;
@@ -44,16 +44,12 @@
   background-color: white;
 }
 
-.index_body .webcam {
-  margin-bottom: 30px;
-}
-
 .index_body .label {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: 'Do Hyeon', sans-serif;
+  font-family: "Do Hyeon", sans-serif;
   font-size: 30px;
 }
 
@@ -69,6 +65,7 @@
   background-color: rgb(0, 0, 0); /* Fallback color */
   background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
+
 .modal .modalcontent {
   display: flex;
   flex-direction: column;
@@ -107,13 +104,13 @@
 .maskon {
   width: 50px;
   height: 50px;
-  margin: 30px;
+  margin: 15px;
 }
 
 .maskoff {
   width: 50px;
   height: 50px;
-  margin: 30px;
+  margin: 15px;
 }
 
 .modal .maskimg {
