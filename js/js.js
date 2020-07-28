@@ -11,7 +11,12 @@ let maskimgsrc = "maskimg.png";
 let btn = document.getElementsByClassName("start_button");
 btn = document.querySelector("button");
 
+
+var countmaskon;
+var countmaskoff;
+
 var count;
+
 
 // Load the image model and setup the webcam
 async function init() {
@@ -119,6 +124,11 @@ async function predict() {
     audio1.play();
     document.getElementById("text").innerHTML = "검사가 완료되었습니다.";
 
+    
+    await countmaskon();
+    
+
+
     count = document.getElementsByClassName("count").innerHTML;
     count++;
     document.getElementsByClassName("count").innerHTML = count;
@@ -134,6 +144,9 @@ async function predict() {
     audio2.play();
     document.getElementById("text").innerHTML = "마스크를 착용해주세요!";
     document.getElementById("maskimg").src = maskimgsrc;
+
+    await countmaskoff();
+
     await new Promise((resolve, reject) => {
       setTimeout(() => {
         audio2.pause();
@@ -157,4 +170,16 @@ async function predict() {
     }, 1000);
   });
   return count;
+
+  function countmaskon() {
+  countmaskon = document.getElementById("count").innerHTML;
+  countmaskon++;
+  document.getElementById("count").innerHTML = countmaskon;
+}
+
+function countmaskoff(){
+  countmaskoff = document.getElementById("count2").innerHTML;
+  countmaskoff++;
+  document.getElementById("count2").innerHTML = countmaskoff;
+}
 }
