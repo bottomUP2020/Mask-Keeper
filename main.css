@@ -7,8 +7,6 @@
   justify-content: center;
   padding: 30px;
   margin: 30px;
-  font-family: "Roboto", sans-serif;
-  font-size: 40px;
   letter-spacing: 2.5px;
   font-weight: 500;
 }
@@ -16,13 +14,14 @@
 .index_body .index_title {
   padding: 10px;
   margin: 30px;
+  font-family: "Anton", sans-serif;
+  font-size: 70px;
 }
 
 .index_body .start_btn {
   width: 140px;
   height: 45px;
   margin: 30px;
-  font-family: "Roboto", sans-serif;
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 2.5px;
@@ -47,6 +46,20 @@
 .index_body .start_btn:visited {
   background-color: white;
 }
+
+.index_body .webcam {
+  margin-bottom: 30px;
+}
+
+.index_body .label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Do Hyeon', sans-serif;
+  font-size: 30px;
+}
+
 .index_body .modal {
   display: none; /* Hidden by default 처음에 보이지 않음 */
   position: fixed; /* Stay in place */
@@ -54,7 +67,7 @@
   left: 0;
   top: 0;
   width: 100%; /* Full width */
-  height: 100%; /* Full height */
+  height: 100%;
   overflow: auto; /* Enable scroll if needed 스크롤내려도 따라감*/
   background-color: rgb(0, 0, 0); /* Fallback color */
   background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
@@ -75,46 +88,38 @@
   font-size: medium;
 }
 
-.count{
-  font-family: 'Anton', sans-serif;
-  font-size: 30px;
-  
-  margin-left: 40px;
-}
-
-.count2{
-  font-family: 'Anton', sans-serif;
-  font-size: 30px;
-  margin-left: 80px;
-}
-
-.maskon{
-  width: 50px;
-  height: 50px;
-  margin-left: 20px;
-}
-
-.maskoff{
-  width: 50px;
-  height: 50px;
-  margin-left: 60px;
-}
-
-.index_title{
-  font-family: 'Anton', sans-serif;
-  font-size: 70px;
-}
-
-.modal .maskimg {
-  width: 150px;
-  height: 250px;
-}
-
-.javaScript .labelContainer {
+.index_body .counting {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
 }
 
+.count {
+  font-family: "Anton", sans-serif;
+  font-size: 30px;
+  margin: 30px;
+}
 
+.count2 {
+  font-family: "Anton", sans-serif;
+  font-size: 30px;
+  margin: 30px;
+}
+
+.maskon {
+  width: 50px;
+  height: 50px;
+  margin: 30px;
+}
+
+.maskoff {
+  width: 50px;
+  height: 50px;
+  margin: 30px;
+}
+
+.modal .maskimg {
+  width: 210px;
+  height: 350px;
+}
