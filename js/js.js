@@ -23,7 +23,7 @@ async function init() {
   maxPredictions = model.getTotalClasses();
 
   const flip = true; // whether to flip the webcam
-  webcam = new tmImage.Webcam(400, 600, flip); // 웹캠 사이즈 조정
+  webcam = new tmImage.Webcam(400, 400, flip); // 웹캠 사이즈 조정
   await webcam.setup(); // request access to the webcam
   await webcam.play(); //웹캠 재생
 

@@ -20,17 +20,3 @@ a {
   color: inherit;
   text-decoration: none; /*링크에 생기는 밑줄하는 decoration제거*/
 }
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-main {
-  animation: fadeIn 0.5s ease-in-out;
-}
