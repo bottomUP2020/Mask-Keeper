@@ -22,7 +22,6 @@
   width: 140px;
   height: 45px;
   margin: 30px;
-  font-family: "Roboto", sans-serif;
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 2.5px;
@@ -89,55 +88,38 @@
   font-size: medium;
 }
 
-.count{
-  font-family: 'Anton', sans-serif;
-  font-size: 30px;
-  
-  margin-left: 40px;
-}
-
-.count2{
-  font-family: 'Anton', sans-serif;
-  font-size: 30px;
-  margin-left: 80px;
-}
-
-.maskon{
-  width: 50px;
-  height: 50px;
-  margin-left: 20px;
-}
-
-.maskoff{
-  width: 50px;
-  height: 50px;
-  margin-left: 60px;
-}
-
-.index_title{
-  font-family: 'Anton', sans-serif;
-  font-size: 70px;
-}
-
-.modal .maskimg {
-  width: 150px;
-  height: 250px;
-}
-
-.javaScript .labelContainer {
+.index_body .counting {
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
 
-.count{
-  font-size: 50px;
-  flex-direction: column;
+.count {
+  font-family: "Anton", sans-serif;
+  font-size: 30px;
+  margin: 30px;
 }
-.index_title{
-  font-family: 'Anton', sans-serif;
-  font-size: 70px;
+
+.count2 {
+  font-family: "Anton", sans-serif;
+  font-size: 30px;
+  margin: 30px;
 }
+
+.maskon {
+  width: 50px;
+  height: 50px;
+  margin: 30px;
+}
+
+.maskoff {
+  width: 50px;
+  height: 50px;
+  margin: 30px;
+}
+
 .modal .maskimg {
   width: 210px;
   height: 350px;
 }
-
-
