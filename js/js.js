@@ -11,12 +11,8 @@ let maskimgsrc = "maskimg.png";
 let btn = document.getElementsByClassName("start_button");
 btn = document.querySelector("button");
 
-
 var countmaskon;
 var countmaskoff;
-
-var count;
-
 
 // Load the image model and setup the webcam
 async function init() {
@@ -30,7 +26,7 @@ async function init() {
   maxPredictions = model.getTotalClasses();
 
   const flip = true; // whether to flip the webcam
-  webcam = new tmImage.Webcam(400, 400, flip); // 웹캠 사이즈 조정
+  webcam = new tmImage.Webcam(400, 600, flip); // 웹캠 사이즈 조정
   await webcam.setup(); // request access to the webcam
   await webcam.play(); //웹캠 재생
 
@@ -123,16 +119,9 @@ async function predict() {
     audio1.currentTime = 0;
     audio1.play();
     document.getElementById("text").innerHTML = "검사가 완료되었습니다.";
-
     
     await countmaskon();
     
-
-
-    count = document.getElementsByClassName("count").innerHTML;
-    count++;
-    document.getElementsByClassName("count").innerHTML = count;
-
     await new Promise((resolve, reject) => {
       setTimeout(() => {
         audio1.pause();
