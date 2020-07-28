@@ -1,5 +1,3 @@
-/** 자바스크립트 내의 요소들 정렬하기 ex) 검사가 완료되었습니다 텍스트**/
-
 .index_body {
   display: flex;
   flex-direction: column;
@@ -12,8 +10,7 @@
 }
 
 .index_body .index_title {
-  padding: 10px;
-  margin: 30px;
+  margin-bottom: 30px;
   font-family: "Anton", sans-serif;
   font-size: 70px;
 }
