@@ -12,23 +12,28 @@
 </head>
 <body class="index_body">
     <div class="index_title" >Mask Keeper</div>
-    <button type="button" class="start_btn" onclick="init()">Start</button>
+    <button type="button" class="start_btn" id="start_btn" onclick="init()">Start</button>
     <div id="webcam-container" class="webcam"></div>
-    <div class="counting">
-        <img id="maskon" class="maskon" src="maskon.png">
-        <div id="count" class="count">0</div>
-        <img id="maskoff" class="maskoff" src="maskoff.png">
-        <div id="count2" class="count2">0</div>
-    </div>
     <div id="label-container" class="label"></div>
+    <div class="counting">
+        <img id="maskOn" class="cntMask" src="maskon.png">
+        <div id="count_1" class="cntMask">0</div>
+        <img id="maskOff" class="cntMask" src="maskoff.png">
+        <div id="count_2" class="cntMask">0</div>
+    </div>
+    <button type="button" class="stop_btn" onclick="stopPlay()" id = "stop_btn">종료</button>
     
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
     <div id="myModal" class="modal">
         <div class="modalcontent">
-            <span id="text" class="text"></span>
-            <br>
-            <img id="maskimg" class="maskimg" src="" >
+            <div class ="alerting">
+            <img id="maskimg" class="alerting" src="">
+            </div>
+            <div class ="alerting">
+            <span id="text" class="alerting"></span>
+            </div>
+            <!-- <br> -->
         </div>
     </div>
 </body>
