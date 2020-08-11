@@ -11,11 +11,11 @@ let modal = document.getElementById("myModal");
 var audio1 = new Audio("./검사가 완료되었습니다.mp3");
 var audio2 = new Audio("./마스크를 착용해주세요.mp3");
 var audio3 = new Audio("./마스크 착용은 필수입니다.mp3");
-let maskimgsrc = "maskimg.png";
-let alert_maskOn = "alert_maskOn.png";
-let alert_maskOff = "alert_maskOff.png";
+let maskimgsrc = "maskimg.jpg";
+let alert_maskOn = "alert_maskOn.jpg";
+let alert_maskOff = "alert_maskOff.jpg";
 let soundOn = "soundOn.jpg";
-let soundOff = "soundOff.png";
+let soundOff = "soundOff.jpg";
 
 let checkResult; // 판정 값 check함수로부터의 반환값을 받아온다.
 let stopOperate =0; // stop 버튼 활성화 여부 0: 비활, 1 : 정지
@@ -47,7 +47,7 @@ async function stopPlay(){ // 정지 버튼을 누를 때 실행되는 함수
   pause_btn.style.display="none"; // 일시정지버튼 안보이게
   labelContainer.childNodes[0].innerHTML = "검사가 종료되었습니다."; // 글씨 변경
   document.getElementById("webcam-container").innerHTML = null; // 웹캠 띄운 화면을 안보이게 함
-  console.log("플레이 정지!!!"); // 콘솔창에 띄워서 확인
+  console.log("BTN _ 플레이 정지!!!"); // 콘솔창에 띄워서 확인
   CheckResult=100; // predict 함수에 쓰일 판단값을 변경
   await new Promise((resolve,reject) => {
       predict();
@@ -71,12 +71,14 @@ async function pausePRD(){ // 일시 정지 버튼을 누를 때 실행되는 �
 }
 muteSound.onclick=function(){
   if(mutecheck==0){
+    console.log("BTN _ 음소거");
     audio1.muted=true;
     audio2.muted=true;
     audio3.muted=true;
     mutecheck=1;
     document.getElementById("mute").src = soundOn;
   }else{
+    console.log("BTN _ 음소거 해제");
     audio1.muted=false;
     audio2.muted=false;
     audio3.muted=false;
@@ -104,6 +106,7 @@ async function loop() {
       //0 : 정지 버튼 눌렀을 떄 , 1 : 진행
 
       if(check_predict==0){
+          console.log("BTN . 정지");
           return;//정지 버튼을 눌렀을 때 함수를 탈출하여 실행 정지
       }
 
@@ -116,6 +119,7 @@ async function loop() {
   }
   else if(checkLoop<120){
       labelContainer.childNodes[0].innerHTML = "화면에 얼굴을 비춰주세요.";
+      console.log("2. 루프 돌기 120번");
       checkLoop++;
       window.requestAnimationFrame(loop); //순서 변경 x 
   }
@@ -125,20 +129,25 @@ function check(prediction){//predict()의 prediction배열을 파라미터로 �
   
   return new Promise(function(resolve,reject){
       if(pauseOperate==1){//일시정지
+        console.log("BTN_일시정지")
         resolve(-2);
       }
       if(pauseOperate==1){
         return -2;
       }
       if(stopOperate==1){
+        console.log("BTN_정지");
           resolve(-1); // 정지버튼을 눌렀을 경우 -1을 반환
       }
       if(prediction[0].className == "mask" && prediction[0].probability.toFixed(2)>=0.70){
-          resolve(1); // 마스크 착용 시 1을 반환
+          console.log("3.판단 완료");
+        resolve(1); // 마스크 착용 시 1을 반환
       }else if(prediction[1].className == "no mask" && prediction[1].probability.toFixed(2)>=0.70){
-          resolve(0); //마스크 미착용시 0을 반환
+        console.log("3.판단 완료");
+        resolve(0); //마스크 미착용시 0을 반환
       }else{
-          resolve(100); //착용 여부가 불분명할 경우 100을 반환
+        console.log("3.판단 완료");
+        resolve(100); //착용 여부가 불분명할 경우 100을 반환
       }
       reject(-100); //실행 불가 시 -100반환
   });
@@ -167,6 +176,7 @@ async function predict() {
   });
 
   if (checkResult == 1) { // 마스크를 착용 하였을 때
+    console.log("4. 마스크 착용");
     audio1.currentTime = 0;
     audio1.play();
     document.getElementById("text").innerHTML = "검사가 완료되었습니다.";
@@ -187,6 +197,8 @@ async function predict() {
       }, 2000);
     });
   } else if (checkResult == 0) {//마스크 미착용 시
+    console.log("4. 마스크 미착용");
+
     audio2.currentTime = 0;
     audio2.play();
     document.getElementById("text").innerHTML = "마스크를 착용해주세요!";
@@ -211,12 +223,17 @@ async function predict() {
       }, 2000);
     });
   }else{
+    console.log("4. 재검사");
+
     document.getElementById("text").innerHTML ="다시 검사하겠습니다.";
+    document.getElementById("maskimg").style.display = "none";
+    document.getElementById("modalText").style.display="none";
   }
   checkState = await new Promise((resolve, reject) => {
     setTimeout(() => {
       audio1.pause();
       modal.style.display = "none";
+      document.getElementById("maskimg").style.display = "block";
       resolve(1);
     }, 1000);
   });
@@ -279,7 +296,6 @@ async function p_loop() {
     return;
   }
   if(checkPre==1){
-      console.log="사람 있음"
       for(let i=0;i<20;i++){
        webcam.update(); // update the webcam frame
       }
@@ -296,6 +312,7 @@ async function p_loop() {
 async function p_predict() {
   const prediction_P = await p_model.predict(webcam.canvas);
  if(prediction_P[0].className=="someoneInHere"&&prediction_P[0].probability.toFixed(2)>0.90){
+  console.log=("1. 사람 여부 판단 : 사람 있음");
   return 1;
  }else{
      return 0;
