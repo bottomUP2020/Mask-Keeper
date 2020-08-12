@@ -7,8 +7,9 @@ let model, webcam, labelContainer, maxPredictions;
 let p_model, p_labelContainer, p_maxPredictions;// 사람 여부 확인 티쳐블 변수
 
 let checkLoop = 0; // 전역변수로 체킹 변수 설정
-let mymodal = document.getElementById("myModal");
-let imfomodal = document.getElementById("imfoModal");
+let mymodal = document.getElementById("myModal");//마스크 확인 띄울 모달
+//이름 바꿈 주의!!!!!!!!!modal->mymodal(변수 우클릭->rename으로 바꿀수 있음)
+let imfomodal = document.getElementById("imfoModal");//정보띄울 모달 
 var audio1 = new Audio("./검사가 완료되었습니다.mp3");
 var audio2 = new Audio("./마스크를 착용해주세요.mp3");
 var audio3 = new Audio("./마스크 착용은 필수입니다.mp3");
@@ -30,9 +31,11 @@ let pause_btn = document.getElementById("pause_btn");
 var muteSound = document.getElementById("mute");
 var mutecheck = 0; // 0= soundOn , 1 = mute
 
+////////////////정보 버튼들 변수
 var span = document.getElementsByClassName("close")[0];
 var imfo = document.getElementById("?");
 var intromask = document.getElementById("introMask"); 
+///////////////////
 
 let warningText = document.getElementsByClassName("warningText");    
 
@@ -89,6 +92,8 @@ muteSound.onclick=function(){
     mutecheck=1; // 음소거 상태로 변경
   }
 }
+////////////////////////////////////////
+//정보 버튼 좌라락 3개중 한버튼 추가 안한상태
 async function imfo_f(){
   imfomodal.style.display = "block";
   document.getElementById("introMaskimg").src = "wearMask.jpg";
@@ -100,14 +105,7 @@ async function intromask_f(){
 span.onclick = function(){
   imfomodal.style.display = "none";
 }
-// imfo.onclick = function(){
-//   imfomodal.style.display = "block";
-//   document.getElementById("introMaskimg").src = "wearMask.jpg";
-// }
-// intromask.onclick = function(){
-//   imfomodal.style.display = "block";
-//   document.getElementById("introMaskimg").src = "wearMask.jpg";
-// }
+/////////////////////////////////////////
 
 async function init() {
   window.requestAnimationFrame(loop); 
@@ -264,12 +262,15 @@ async function predict() {
 ///////////////////사람 존재 여부 판독////////////////////////////
 //////////////////////////////////////////////////////////////////
 async function p_init() {
+  //////////////////////////
+  //=>시작버튼 누른후 마스크키퍼 글씨크기 줄이고, 주위 여백 줄임
   var title = document.getElementById("index_title");
   title.style.fontSize = "20px";
   document.getElementById("index_body").style.margin = "10px";
   document.getElementById("index_body").style.padding = "10px";
   document.getElementById("index_title").style.margin = "10px";
   document.getElementById("index_title").style.padding = "0px";
+  //////////////////////
   start_btn.style.display = "none"; // 시작 버튼 안보이게
   stop_btn.style.display="block"; // 종료 버튼 보이게
   pause_btn.style.display="block";
