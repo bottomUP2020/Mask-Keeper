@@ -9,25 +9,38 @@
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Indie+Flower&family=Staatliches&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Staatliches&display=swap" rel="stylesheet">
 </head>
-<body class="index_body">
-    <div class="index_title" >Mask Keeper</div>
+<body class="index_body" id="index_body">
+    <div class="index_title" id="index_title">Mask Keeper</div>
     <button type="button" class="btn" id="start_btn" onclick="p_init()">검사 시작</button>
     <div id="webcam-container" class="webcam"></div>
     <div id="label-container" class="label"></div>
     
     <div class ="counting"> 
         <!-- 웹뷰 탐지 시에 카운팅 -->
-        <img id="maskOn" class="cntMask" src="maskon.jpg">
+        <img id="maskOn" class="cntMask" src="maskon.png">
         <div id="count_1" class="cntMask">0</div>
-        <img id="maskOff" class="cntMask" src="maskoff.jpg">
+        <img id="maskOff" class="cntMask" src="maskoff.png">
         <div id="count_2" class="cntMask">0</div>
     </div>
     <div id ="buttons">
-        <button type="button" class="btn" onclick="pausePRD()" id = "pause_btn">일시정지</button>
-        <button type="button" class="btn" onclick="stopPlay()" id = "stop_btn">검사 종료</button>
+        <button type="button" class="btn2" onclick="pausePRD()" id = "pause_btn">일시 정지</button>
+        <button type="button" class="btn2" onclick="stopPlay()" id = "stop_btn">검사 종료</button>
     </div>
 
-    <img type ="button" id="mute" src="soundOn.jpg">
+    <img type ="button" class="circlebutton" id="mute" src="soundOn.jpg">
+    <br>
+    <br>
+    <br>
+    <div id ="buttons">
+        <button type="button" class="btn3" onclick="imfo_f()" id = "?">사용방법</button>
+        <button type="button" class="btn3" onclick="intromask_f()" id = "introMask">마스크 착용법</button>
+        <button type="button" class="btn3" onclick="" id = "website">코로나19 현황</button>
+    </div>
+    <!-- <div class="counting">
+        <img type ="button" class="circlebutton" id="?" src="soundOn.jpg">
+        <img type ="button" class="circlebutton" id="introMask" src="soundOn.jpg">
+        <img type ="button" class="circlebutton" id="website" src="soundOn.jpg">
+    </div> -->
     <!-- 위치 바꿔도 상관 없듬 -->
     
     
@@ -45,6 +58,14 @@
                 <span class= "warningText">당신을 제외한 </span>
                 <span class= "warningText" id="warningCNT">0</span>
                 <span class= "warningText">명이 마스크를 착용하였습니다.</span>
+            </div>
+        </div>
+    </div>
+    <div id="imfoModal" class="modal">
+        <div class="modalcontent">
+            <div id="madalImfo">
+                <span class="close">&times;</span>
+                <img id="introMaskimg" src="">
             </div>
         </div>
     </div>
