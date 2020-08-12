@@ -134,6 +134,8 @@ html{
 .modalcontent .firstcontent #text{
   font-weight: bolder;
   font-size: 1.2rem;
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
 .modal #modalText {
   flex-direction: column;
@@ -219,7 +221,7 @@ html{
   float: right;
   border-radius: 50px ;
   border: 2px solid #1D3689;
-  margin: 10px;
+  margin-top: 10px;
 }
 
 
@@ -284,3 +286,10 @@ iframe{
 
 .dropdown-content a :hover {background-color: #f1f1f1}
 .show {display:block;}
+
+.index_body #LD{
+  display: none;
+  width: 250px;
+  border: 2px solid #1D3689
+  
+}
