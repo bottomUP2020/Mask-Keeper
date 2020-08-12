@@ -9,7 +9,11 @@ let p_model, p_labelContainer, p_maxPredictions;// 사람 여부 확인 티쳐�
 let checkLoop = 0; // 전역변수로 체킹 변수 설정
 let mymodal = document.getElementById("myModal");//마스크 확인 띄울 모달
 //이름 바꿈 주의!!!!!!!!!modal->mymodal(변수 우클릭->rename으로 바꿀수 있음)
-let imfomodal = document.getElementById("imfoModal");//정보띄울 모달 
+let imfomodal = document.getElementById("imfoModal");//정보띄울 모달
+
+// let imfomodal2 = document.getElementById("imfoModal2"); 
+
+
 var audio1 = new Audio("./검사가 완료되었습니다.mp3");
 var audio2 = new Audio("./마스크를 착용해주세요.mp3");
 var audio3 = new Audio("./마스크 착용은 필수입니다.mp3");
@@ -31,11 +35,10 @@ let pause_btn = document.getElementById("pause_btn");
 var muteSound = document.getElementById("mute");
 var mutecheck = 0; // 0= soundOn , 1 = mute
 
-////////////////정보 버튼들 변수
-var span = document.getElementsByClassName("close")[0];
-var imfo = document.getElementById("?");
-var intromask = document.getElementById("introMask"); 
-///////////////////
+
+// var span = document.getElementsByClassName("close")[0];
+// var span2 = document.getElementsByClassName("close")[1];
+
 
 let warningText = document.getElementsByClassName("warningText");    
 
@@ -47,6 +50,24 @@ var count;
 
 const flip = true; 
 webcam = new tmImage.Webcam(250, 250, flip); 
+function dropdownclick() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+// window.onclick = function(event) {
+//   if (!event.target.matches('.dropbtn')) {
+//     var dropdowns = document.getElementsByClassName("dropdown-content");
+//     var i;
+//     for (i = 0; i < dropdowns.length; i++) {
+//       var openDropdown = dropdowns[i];
+//       if (openDropdown.classList.contains('show')) {
+
+//         openDropdown.classList.remove('show');
+//       }
+//     }
+//   }
+// }
 
 async function stopPlay(){ // 정지 버튼을 누를 때 실행되는 함수
   stopOperate=1; // 정지 버튼 활성화
@@ -104,6 +125,9 @@ async function intromask_f(){
 }
 span.onclick = function(){
   imfomodal.style.display = "none";
+}
+span2.onclick = function(){
+  imfomodal2.style.display = "none"
 }
 /////////////////////////////////////////
 
