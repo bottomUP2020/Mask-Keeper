@@ -43,7 +43,7 @@ var countmaskoff;
 var count;
 
 const flip = true; 
-webcam = new tmImage.Webcam(250, 250, flip); 
+webcam = new tmImage.Webcam(300, 300, flip); 
 
 function dropdownclick() {
   document.getElementById("myDropdown").classList.toggle("show");
@@ -297,7 +297,7 @@ async function p_init() {
   //////////////////////////
   //=>시작버튼 누른후 마스크키퍼 글씨크기 줄이고, 주위 여백 줄임
   var title = document.getElementById("index_title");
-  title.style.fontSize = "20px";
+  title.style.fontSize = "30px";
   document.getElementById("index_body").style.margin = "10px";
   document.getElementById("index_body").style.padding = "10px";
   document.getElementById("index_title").style.margin = "10px";
