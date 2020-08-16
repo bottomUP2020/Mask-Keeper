@@ -57,11 +57,7 @@ async function p_init() { // 검사 시작 버튼 실행 함수
   document.getElementById("count_2").style.display='block'; 
   document.getElementById("LD").style.display='block';
 
-  document.getElementById("webcam-container").appendChild(webcam.canvas);
-  labelContainer = document.getElementById("label-container");
-  for (let i = 0; i < p_maxPredictions; i++) { 
-      labelContainer.appendChild(document.createElement("div"));
-  }
+  
   const modelURL_P = URL_P + "p_model.json";
   const metadataURL_P = URL_P + "p_metadata.json";
   
@@ -74,7 +70,11 @@ async function p_init() { // 검사 시작 버튼 실행 함수
   
   await webcam.setup(); 
   await webcam.play();
-
+document.getElementById("webcam-container").appendChild(webcam.canvas);
+  labelContainer = document.getElementById("label-container");
+  for (let i = 0; i < p_maxPredictions; i++) { 
+      labelContainer.appendChild(document.createElement("div"));
+  }
   document.getElementById("LD").style.display='none';
   
   window.requestAnimationFrame(p_loop); // p_loop 함수 실행
@@ -313,8 +313,6 @@ async function predict() {
   } else if (checkResult == 0) {//마스크 미착용 시
     audio2.currentTime = 0;
     audio2.play();
-    document.getElementById("maskOff").style.display = "none";
-    document.getElementById("count_2").style.display = "none";
     document.getElementById("text").innerHTML = "마스크를 착용해주세요!";
     document.getElementById("maskimg").src = alert_maskOff;
     document.getElementById("warningCNT").innerHTML=document.getElementById("count_1").innerHTML;
