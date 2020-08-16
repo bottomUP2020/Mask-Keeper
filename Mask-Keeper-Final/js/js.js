@@ -35,10 +35,6 @@ let warningText = document.getElementsByClassName("warningText");
 let mymodal = document.getElementById("myModal");//마스크 확인 띄울 모달
 let imfomodal = document.getElementById("imfoModal");//정보띄울 모달 
 var span = document.getElementsByClassName("close")[0];
-var span2 = document.getElementsByClassName("close")[1];
-
-
-
 
 
 
@@ -148,9 +144,7 @@ async function intromask_f(){
 span.onclick = function(){
   imfomodal.style.display = "none"; 
 }
-span2.onclick = function(){
-  imfomodal2.style.display = "none"
-}
+
 
 
 // 음소거 버튼 실행 함수
@@ -319,6 +313,8 @@ async function predict() {
   } else if (checkResult == 0) {//마스크 미착용 시
     audio2.currentTime = 0;
     audio2.play();
+    document.getElementById("maskOff").style.display = "none";
+    document.getElementById("count_2").style.display = "none";
     document.getElementById("text").innerHTML = "마스크를 착용해주세요!";
     document.getElementById("maskimg").src = alert_maskOff;
     document.getElementById("warningCNT").innerHTML=document.getElementById("count_1").innerHTML;

@@ -213,8 +213,8 @@ html{
   justify-content: center;
 }
 .index_body .circlebutton{
-  width: 25px;
-  height: 25px;
+  width: 35px;
+  height: 35px;
   float: right;
   border-radius: 50px ;
   border: 2px solid #1D3689;
@@ -250,7 +250,7 @@ iframe{
   background-color: #1D3689;
   color: white;
   padding: 10px;
-  font-size: 16px;
+  font-size: 20px;
   border: none;
   cursor: pointer;
 }
@@ -269,8 +269,9 @@ iframe{
   display: none;
   position: absolute;
   background-color: #f9f9f9;
-  min-width: 160px;
+  min-width: 230px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  font-size: 13px;
 }
 
 .dropdown-content a {
